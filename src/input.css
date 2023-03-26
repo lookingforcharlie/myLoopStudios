@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* this does not work, do not know why */
+/* @layer components {
+  .btn {
+    @apply uppercase border-2 border-black px-10 py-2 my-0 md:text-md tracking-widest hover:shadow-lg hover:-translate-x-0.5 hover:bg-black hover:text-white duration-200;
+  }
+} */
+
+@layer base {
+  h5 {
+    @apply absolute font-thin bottom-4 px-6 w-52 md:bottom-8 md:px-10 group-hover:scale-110 duration-200 group-hover:text-black;
+  }
+}
+
+.gallery-container {
+  @apply flex flex-col items-center justify-between w-full space-y-4 text-2xl text-white uppercase md:flex-row md:space-y-0 md:space-x-8 md:px-0;
+}
+
+.desktop-image {
+  @apply hidden w-full duration-200 md:block group-hover:scale-110;
+}
+
+.mobile-image {
+  @apply w-full md:hidden;
+}
+
+.gradient-setting {
+  @apply absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-40;
+}
+
+/* Starts: hamburger menu */
+.open {
+  @apply rotate-90;
+}
+
+.open .top {
+  @apply rotate-45 translate-y-0.5 translate-x-0.5;
+}
+
+.open .middle {
+  @apply hidden;
+}
+
+.open .bottom {
+  @apply -rotate-45 translate-y-0.5 translate-x-0.5;
+}
+/* Ends: hamburger menu */
+
+#hero {
+  background-image: url('../images/desktop/image-hero.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 576px) {
+  #hero {
+    background-image: url('../images/mobile/image-hero.jpg');
+    background-position: center;
+  }
+}
